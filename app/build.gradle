@@ -1,0 +1,53 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'at.ac.univie.hci.myAppHCI'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "at.ac.univie.hci.myAppHCI"
+        minSdk 27
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    //Dependencies for RETROFIT API CALLS
+    implementation libs.retrofit
+    implementation libs.converter.gson
+
+    //Dependencies for Pop Up Windowz
+    implementation libs.material.v120alpha02
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation libs.material.v161
+
+    //LIbaray for Loading Pictures
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+}
